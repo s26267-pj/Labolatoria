@@ -1,1 +1,85 @@
+#include <vector>
+#include <iostream>
+using namespace std;
 
+void Zadanie1()
+{
+    cout << "[Zadanie 1]" << endl;
+
+	int n;
+
+	cout << "Podaj rozmiar wektora: ";
+	cin >> n;
+    cout << endl;
+
+	vector<int> nr(n);
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "Podaj wartosc dla [" << i << "]: ";
+		cin >> nr[i];
+	}
+
+	int max = 0;
+	int index = 0;
+	int i = 0;
+	for (const auto& v : nr)
+	{
+		if (v > max) {
+			max = v;
+			index = i;
+		}
+		i++;
+	}
+
+	cout << endl << "Najwiekszy element wektora to " << max << " o indeksie rownym " << index << endl;
+
+}
+void Zadanie2()
+{
+    cout << endl << "[Zadanie 2]" << endl;
+
+    int wartosci, elementy;
+
+    cout << "Podaj wielkosc tablicy: ";
+    cin >> elementy;
+    cout << endl;
+
+    int* tab;
+    tab = new int[elementy];
+
+    for (int i = 0; i < elementy; i++)
+    {
+        cout << "Podaj wielkosc elementu [" << i + 1 << "]: ";
+        cin >> wartosci;
+
+        tab[i] = wartosci;
+    }
+    cout << endl << "Tablica wejsciowa" << endl << endl << endl;
+
+    for (int i = 0; i < elementy - 1; i += 2)
+    {
+        cout << tab[i] << "\t" << tab[i + 1] << endl;
+    }
+    if (elementy % 2 != 0)
+    {
+        cout << tab[elementy - 1] << endl;
+    }
+
+    cout << endl << "Tablica wyjsciowa" << endl << endl << endl;
+
+    for (int i = 0; i < elementy - 1; i += 2)
+    {
+        cout << tab[i + 1] << "\t" << tab[i] << endl;
+    }
+    if (elementy % 2 != 0)
+    {
+        cout << "\t" << tab[elementy - 1] << endl;
+    }
+}
+int main()
+{
+	Zadanie1();
+	Zadanie2();
+
+	return 0;
+}
